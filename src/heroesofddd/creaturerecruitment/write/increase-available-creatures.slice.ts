@@ -110,7 +110,7 @@ export const increaseAvailableCreaturesEndpoint =
           metadata: { gameId, now: currentTime() },
         };
 
-        const streamId = `game:${gameId}:creature-recruitment:dwelling${dwellingId}`;
+        const streamId = `CreatureRecruitment:Dwelling-${gameId}:${dwellingId}`;
         await handle(eventStore, streamId, (state) => decide(command, state));
 
         return NoContent();
