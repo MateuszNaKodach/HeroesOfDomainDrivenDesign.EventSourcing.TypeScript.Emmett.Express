@@ -1,6 +1,6 @@
-export { type AvailableCreaturesChanged } from './availableCreaturesChanged';
-export { type CreatureRecruited } from './creatureRecruited';
-export { type DwellingBuilt } from './dwellingBuilt';
+import type { DwellingBuilt } from './dwelling-built.event';
+import type { CreatureRecruited } from './creature-recruited.event';
+import type { AvailableCreaturesChanged } from './available-creatures-changed.event';
 
 export type DwellingEvent =
   | DwellingBuilt
