@@ -13,7 +13,7 @@ const given = DeciderSpecification.for({
   initialState,
 });
 
-void describe('Build Dwelling', () => {
+void describe('Slice: Build Dwelling', () => {
   const now = new Date();
   const dwellingId = randomUUID();
   const creatureId = randomUUID();
@@ -27,12 +27,11 @@ void describe('Build Dwelling', () => {
     gems: 0,
   };
 
+  void describe('given not built dwelling', () => {
+    const events: DwellingEvent[] = [];
 
-  void describe('When not built dwelling', () => {
-    const notBuiltDwelling: DwellingEvent[] = [];
-
-    void it('builds dwelling', () =>
-      given(notBuiltDwelling)
+    void it('when build dwelling, then built', () =>
+      given(events)
         .when({
           type: 'BuildDwelling',
           data: {
@@ -54,8 +53,8 @@ void describe('Build Dwelling', () => {
         ]));
   });
 
-  void describe('When dwelling already built', () => {
-    const builtDwelling: DwellingEvent[] = [
+  void describe('given already built dwelling', () => {
+    const events: DwellingEvent[] = [
       {
         type: 'DwellingBuilt',
         data: {
@@ -66,8 +65,8 @@ void describe('Build Dwelling', () => {
       },
     ];
 
-    void it('throws exception when trying to build same dwelling again', () =>
-      given(builtDwelling)
+    void it('when build same dwelling one more time then exception', () =>
+      given(events)
         .when({
           type: 'BuildDwelling',
           data: {

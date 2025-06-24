@@ -6,6 +6,7 @@ import { randomUUID } from 'crypto';
 import type { Application } from 'express';
 import { guestStayAccountsApi } from './guestStayAccounts/api/api';
 import { guestStayDetailsProjection } from './guestStayAccounts/guestStayDetails';
+import { buildDwellingEndpoint } from './heroesofddd/creaturerecruitment/write/build-dwelling.slice';
 
 const connectionString =
   process.env.POSTGRESQL_CONNECTION_STRING ??
@@ -20,16 +21,19 @@ const readStore = pongoClient(connectionString);
 const doesGuestStayExist = (_guestId: string, _roomId: string, _day: Date) =>
   Promise.resolve(true);
 
+const currentTime = () => new Date();
 const guestStayAccounts = guestStayAccountsApi(
   eventStore,
   readStore.db(),
   doesGuestStayExist,
   (prefix) => `${prefix}-${randomUUID()}`,
-  () => new Date(),
+  currentTime,
 );
 
+const buildDwellingSlice = buildDwellingEndpoint(eventStore, currentTime);
+
 const application: Application = getApplication({
-  apis: [guestStayAccounts],
+  apis: [guestStayAccounts, buildDwellingSlice],
 });
 
 startAPI(application);
