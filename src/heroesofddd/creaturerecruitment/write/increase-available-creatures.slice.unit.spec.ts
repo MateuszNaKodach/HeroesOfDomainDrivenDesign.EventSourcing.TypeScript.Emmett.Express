@@ -82,6 +82,7 @@ void describe('Slice: Increase Available Creatures', () => {
             data: {
               dwellingId,
               creatureId,
+              changedBy: 3,
               changedTo: 3,
             },
           },
@@ -103,6 +104,7 @@ void describe('Slice: Increase Available Creatures', () => {
         data: {
           dwellingId,
           creatureId,
+          changedBy: 1,
           changedTo: 1,
         },
       },
@@ -125,6 +127,7 @@ void describe('Slice: Increase Available Creatures', () => {
             data: {
               dwellingId,
               creatureId,
+              changedBy: 3,
               changedTo: 4,
             },
           },

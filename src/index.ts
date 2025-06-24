@@ -8,6 +8,7 @@ import { guestStayAccountsApi } from './guestStayAccounts/api/api';
 import { guestStayDetailsProjection } from './guestStayAccounts/guestStayDetails';
 import { buildDwellingEndpoint } from './heroesofddd/creaturerecruitment/write/build-dwelling.slice';
 import { increaseAvailableCreaturesEndpoint } from './heroesofddd/creaturerecruitment/write/increase-available-creatures.slice';
+import { recruitCreatureEndpoint } from './heroesofddd/creaturerecruitment/write/recruit-creature.slice';
 
 const connectionString =
   process.env.POSTGRESQL_CONNECTION_STRING ??
@@ -36,12 +37,14 @@ const increaseAvailableCreaturesSlice = increaseAvailableCreaturesEndpoint(
   eventStore,
   currentTime,
 );
+const recruitCreatureSlice = recruitCreatureEndpoint(eventStore, currentTime);
 
 const application: Application = getApplication({
   apis: [
     guestStayAccounts,
     buildDwellingSlice,
     increaseAvailableCreaturesSlice,
+    recruitCreatureSlice,
   ],
 });
 

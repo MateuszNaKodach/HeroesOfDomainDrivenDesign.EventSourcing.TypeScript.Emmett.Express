@@ -75,7 +75,10 @@ const handle = CommandHandler({ evolve, initialState });
 type BuildDwellingRequest = Request<
   Partial<{ gameId: string; dwellingId: string }>,
   unknown,
-  Partial<{ creatureId: string; costPerTroop: Record<string, number> }>
+  Partial<{
+    creatureId: string;
+    costPerTroop: Record<string, number | undefined>;
+  }>
 >;
 
 export const buildDwellingEndpoint =

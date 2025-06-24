@@ -5,6 +5,7 @@ export type AvailableCreaturesChanged = Event<
   {
     dwellingId: string;
     creatureId: string;
+    changedBy: number;
     changedTo: number;
   }
 >;

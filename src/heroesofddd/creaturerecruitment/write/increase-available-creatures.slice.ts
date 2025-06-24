@@ -53,6 +53,7 @@ export const decide = (
     data: {
       dwellingId: command.dwellingId,
       creatureId: command.creatureId,
+      changedBy: +command.increaseBy,
       changedTo: state.availableCreatures + command.increaseBy,
     },
   };
