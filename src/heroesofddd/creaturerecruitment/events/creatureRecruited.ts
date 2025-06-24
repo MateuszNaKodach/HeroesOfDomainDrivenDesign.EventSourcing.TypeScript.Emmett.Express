@@ -1,4 +1,5 @@
 import { type Event } from '@event-driven-io/emmett';
+import { type ResourceType } from '../../shared/domain/valueobjects/resourceType';
 
 export type CreatureRecruited = Event<
   'CreatureRecruited',
@@ -7,6 +8,6 @@ export type CreatureRecruited = Event<
     creatureId: string;
     toArmy: string;
     quantity: number;
-    totalCost: Record<string, number>;
+    totalCost: Record<ResourceType, number>;
   }
 >;
