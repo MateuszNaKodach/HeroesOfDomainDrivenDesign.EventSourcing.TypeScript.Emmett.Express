@@ -1,8 +1,8 @@
 {
-  "name": "expressjs-with-postgresql",
+  "name": "heroesofddd-eventsourcing-typescript-emmett-express",
   "version": "1.0.0",
   "type": "module",
-  "description": "Samples WebApi using Event Sourcing using Emmett, Express.js and PostgreSQL ",
+  "description": "Shows how to use Domain-Driven Design, Event Storming, Event Modeling and Event Sourcing in Heroes of Might & Magic III domain.",
   "scripts": {
     "setup": "cat .nvmrc | nvm install; nvm use",
     "build": "tsup",
@@ -26,17 +26,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oskardudycz/EventSourcing.NodeJS.git"
+    "url": "git+https://github.com/MateuszNaKodach/HeroesOfDomainDrivenDesign.EventSourcing.TypeScript.Emmett.Express.git"
   },
   "keywords": [
-    "Event Sourcing"
+    "Domain-Driven Design",
+    "Event Sourcing",
+    "Event Modeling",
+    "Event Storming"
   ],
-  "author": "Oskar Dudycz",
+  "author": "Mateusz Nowak",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oskardudycz/EventSourcing.NodeJS/issues"
+    "url": "https://github.com/MateuszNaKodach/HeroesOfDomainDrivenDesign.EventSourcing.TypeScript.Emmett.Express/issues"
   },
-  "homepage": "https://github.com/oskardudycz/EventSourcing.NodeJS#readme",
+  "homepage": "https://github.com/MateuszNaKodach/HeroesOfDomainDrivenDesign.EventSourcing.TypeScript.Emmett.Express#readme",
   "dependencies": {
     "@event-driven-io/emmett-postgresql": "0.38.3",
     "@event-driven-io/emmett-expressjs": "0.38.3"
