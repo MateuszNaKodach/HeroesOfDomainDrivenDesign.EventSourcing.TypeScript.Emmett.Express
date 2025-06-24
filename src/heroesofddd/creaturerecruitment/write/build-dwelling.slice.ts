@@ -85,11 +85,11 @@ export const buildDwellingEndpoint =
   (eventStore: EventStore, currentTime: () => Date): WebApiSetup =>
   (router: Router) => {
     router.put(
-      'games/:gameId/dwellings/:dwellingId',
+      '/games/:gameId/dwellings/:dwellingId',
       on(async (request: BuildDwellingRequest) => {
         const gameId = assertNotEmptyString(request.params.gameId);
         const dwellingId = assertNotEmptyString(request.params.dwellingId);
-        const creatureId = assertNotEmptyString(request.params.dwellingId);
+        const creatureId = assertNotEmptyString(request.body.creatureId);
         const costPerTroop = request.body.costPerTroop as Cost; // todo: validation!
 
         const command: BuildDwelling = {

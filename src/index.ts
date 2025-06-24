@@ -12,7 +12,7 @@ import { recruitCreatureEndpoint } from './heroesofddd/creaturerecruitment/write
 
 const connectionString =
   process.env.POSTGRESQL_CONNECTION_STRING ??
-  'postgresql://postgres@localhost:5432/postgres';
+  'postgresql://postgres:postgres@localhost:5432/postgres';
 
 const eventStore = getPostgreSQLEventStore(connectionString, {
   projections: projections.inline([guestStayDetailsProjection]),

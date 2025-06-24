@@ -142,7 +142,7 @@ export const recruitCreatureEndpoint =
   (eventStore: EventStore, currentTime: () => Date): WebApiSetup =>
   (router: Router) => {
     router.put(
-      'games/:gameId/dwellings/:dwellingId/creature-recruitments',
+      '/games/:gameId/dwellings/:dwellingId/creature-recruitments',
       on(async (request: RecruitCreatureRequest) => {
         const gameId = assertNotEmptyString(request.params.gameId);
         const dwellingId = assertNotEmptyString(request.params.dwellingId);

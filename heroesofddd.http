@@ -1,0 +1,106 @@
+@gameId = game-123
+@dwellingId = dwelling-456
+@creatureId = archer
+@armyId = army-789
+
+### Build Dwelling
+
+# @name buildDwelling
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId}} HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId}}",
+  "costPerTroop": {
+    "gold": 150,
+    "wood": 0,
+    "ore": 0,
+    "mercury": 0,
+    "sulfur": 0,
+    "crystal": 0,
+    "gems": 0
+  }
+}
+
+### Increase Available Creatures
+
+# @name increaseCreatures
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId}}/available-creatures-increases HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId}}",
+  "increaseBy": 10
+}
+
+### Recruit Creature
+
+# @name recruitCreature
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId}}/creature-recruitments HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId}}",
+  "armyId": "{{armyId}}",
+  "quantity": 5,
+  "expectedCost": {
+    "gold": 750,
+    "wood": 0,
+    "ore": 0,
+    "mercury": 0,
+    "sulfur": 0,
+    "crystal": 0,
+    "gems": 0
+  }
+}
+
+### Build Different Dwelling Type
+
+@dwellingId2 = dwelling-789
+@creatureId2 = griffin
+
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId2}} HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId2}}",
+  "costPerTroop": {
+    "gold": 200,
+    "wood": 0,
+    "ore": 0,
+    "mercury": 0,
+    "sulfur": 0,
+    "crystal": 0,
+    "gems": 0
+  }
+}
+
+### Increase Available Creatures for Griffin
+
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId2}}/available-creatures-increases HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId2}}",
+  "increaseBy": 3
+}
+
+### Recruit Multiple Creatures
+
+PUT http://localhost:3000/games/{{gameId}}/dwellings/{{dwellingId2}}/creature-recruitments HTTP/1.1
+content-type: application/json
+
+{
+  "creatureId": "{{creatureId2}}",
+  "armyId": "{{armyId}}",
+  "quantity": 2,
+  "expectedCost": {
+    "gold": 400,
+    "wood": 0,
+    "ore": 0,
+    "mercury": 0,
+    "sulfur": 0,
+    "crystal": 0,
+    "gems": 0
+  }
+} 

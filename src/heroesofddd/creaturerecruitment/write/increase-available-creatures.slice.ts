@@ -93,7 +93,7 @@ export const increaseAvailableCreaturesEndpoint =
   (eventStore: EventStore, currentTime: () => Date): WebApiSetup =>
   (router: Router) => {
     router.put(
-      'games/:gameId/dwellings/:dwellingId/available-creatures-increases',
+      '/games/:gameId/dwellings/:dwellingId/available-creatures-increases',
       on(async (request: IncreaseAvailableCreaturesRequest) => {
         const gameId = assertNotEmptyString(request.params.gameId);
         const dwellingId = assertNotEmptyString(request.params.dwellingId);
