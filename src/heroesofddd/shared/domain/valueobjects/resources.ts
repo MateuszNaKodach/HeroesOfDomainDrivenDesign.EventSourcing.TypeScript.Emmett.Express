@@ -6,3 +6,5 @@ export type ResourceType =
   | 'sulfur'
   | 'crystal'
   | 'gems';
+
+export type Cost = Record<ResourceType, number | undefined>;

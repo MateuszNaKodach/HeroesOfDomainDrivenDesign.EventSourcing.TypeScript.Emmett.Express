@@ -12,7 +12,7 @@ import {
 } from '@event-driven-io/emmett-expressjs';
 import { type Request, type Router } from 'express';
 import type { CommandMetadata } from '../../shared/application/command-metadata';
-import type { ResourceType } from '../../shared/domain/valueobjects/resourceType';
+import type { Cost } from '../../shared/domain/valueobjects/resources';
 import type { DwellingEvent } from '../events';
 
 ////////////////////////////////////////////
@@ -24,7 +24,7 @@ export type BuildDwelling = Command<
   {
     dwellingId: string;
     creatureId: string;
-    costPerTroop: Record<ResourceType, number>;
+    costPerTroop: Cost;
   },
   CommandMetadata
 >;
@@ -87,10 +87,7 @@ export const buildDwellingEndpoint =
         const gameId = assertNotEmptyString(request.params.gameId);
         const dwellingId = assertNotEmptyString(request.params.dwellingId);
         const creatureId = assertNotEmptyString(request.params.dwellingId);
-        const costPerTroop = request.body.costPerTroop as Record<
-          ResourceType,
-          number
-        >; // todo: validation!
+        const costPerTroop = request.body.costPerTroop as Cost; // todo: validation!
 
         const command: BuildDwelling = {
           type: 'BuildDwelling',
